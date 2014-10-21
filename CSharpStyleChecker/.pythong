@@ -1,0 +1,22 @@
+author: Liam Middlebrook
+classifiers: []
+description: A Style Checker for C-Sharp (similar to PEP8)
+directories: [/home/liam/repos/c-sharp-style-checker/CSharpStyleChecker, /home/liam/repos/c-sharp-style-checker/CSharpStyleChecker/docs,
+  /home/liam/repos/c-sharp-style-checker/CSharpStyleChecker/CSharpStyleChecker]
+docs_dir: /home/liam/repos/c-sharp-style-checker/CSharpStyleChecker/docs
+email: liammiddlebrook@gmail.com
+encoding: utf8
+files: [/home/liam/repos/c-sharp-style-checker/CSharpStyleChecker/MANIFEST.in, /home/liam/repos/c-sharp-style-checker/CSharpStyleChecker/setup.py,
+  /home/liam/repos/c-sharp-style-checker/CSharpStyleChecker/CSharpStyleChecker/__init__.py]
+init_file: null
+keywords: [c#]
+license: GPLv3
+manifest: /home/liam/repos/c-sharp-style-checker/CSharpStyleChecker/MANIFEST.in
+name: CSharpStyleChecker
+project_dir: /home/liam/repos/c-sharp-style-checker/CSharpStyleChecker
+requires: ['']
+setup_file: /home/liam/repos/c-sharp-style-checker/CSharpStyleChecker/setup.py
+shortname: CSharpStyleChecker
+source_dir: /home/liam/repos/c-sharp-style-checker/CSharpStyleChecker/CSharpStyleChecker
+url: https://github.com/liam-middlebrook/c-sharp-style-checker
+version: 0.1.0
