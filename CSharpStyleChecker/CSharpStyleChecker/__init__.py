@@ -16,11 +16,23 @@ def styleCheck(fileContents, fileName):
 
    regexMsg = regex_egyptianbrace.findall(fileContents)
    if regexMsg:
+       parsedLines = []
        for line in regexMsg:
-           with open(fileName, 'r') as f:
-               for num, text in enumerate(f):
-		   if line.rstrip('\n ') in text:
-                       print "Error 001 on line: ", (num + 1), " ", line
+           printWithLineNumber('001', fileName, line.rstrip(), parsedLines)
+
+def printWithLineNumber(errorCode, fileName, line, parsedLines):
+    """
+    Takes an error code and a line
+    prints out the error code
+    with the line number and the
+    content of the line in question
+    """
+    with open(fileName, 'r') as f:
+        for num, text in enumerate(f):
+	    if line in text and (num+1) not in parsedLines:
+	        parsedLines.append(num+1)
+		print "Error", errorCode, "on line:", (num+1), '| ', line
+		break
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
