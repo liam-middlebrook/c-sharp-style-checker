@@ -7,18 +7,24 @@ base_dir = os.path.split(__file__)[0]
 regex_egyptianbrace = re.compile(r'\w+.*\{\s*')
 
 def styleCheck(fileContents, fileName):
-   """
-   Checks the content of fileName
-   to see if it is 'valid' C# as
-   far as a set of predefined
-   standards goes
-   """
+    """
+    Checks the content of fileName
+    to see if it is 'valid' C# as
+    far as a set of predefined
+    standards goes
+    """
+    
+    # Check for egyptian braces
+    checkErrorWithRegex(fileContents, fileName, regex_egyptianbrace)
 
-   regexMsg = regex_egyptianbrace.findall(fileContents)
-   if regexMsg:
-       parsedLines = []
-       for line in regexMsg:
-           printWithLineNumber('001', fileName, line.rstrip(), parsedLines)
+def checkErrorWithRegex(fileContents, fileName, regexCmd):
+    """
+    """
+    regexMsg = regexCmd.findall(fileContents)
+    if regexMsg:
+        parsedLines = []
+        for line in regexMsg:
+            printWithLineNumber('001', fileName, line.rstrip(), parsedLines)
 
 def printWithLineNumber(errorCode, fileName, line, parsedLines):
     """
