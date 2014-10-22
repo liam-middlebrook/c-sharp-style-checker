@@ -5,6 +5,7 @@ import re
 base_dir = os.path.split(__file__)[0]
 
 regex_egyptianbrace = re.compile(r'\w+.*\{\s*')
+regex_varkeyword = re.compile(r'(?:\W|^)var(?:\W|$)')
 
 def styleCheck(fileContents, fileName):
     """
@@ -16,6 +17,7 @@ def styleCheck(fileContents, fileName):
     
     # Check for egyptian braces
     checkErrorWithRegex(fileContents, fileName, regex_egyptianbrace, '001')
+    checkErrorWithRegex(fileContents, fileName, regex_varkeyword, '002')
 
 def checkErrorWithRegex(fileContents, fileName, regexCmd, errorCode):
     """
@@ -40,7 +42,7 @@ def printWithLineNumber(errorCode, fileName, line, parsedLines):
         for num, text in enumerate(f):
 	    if line in text and (num+1) not in parsedLines:
 	        parsedLines.append(num+1)
-		print "Error", errorCode, "on line:", (num+1), '| ', line
+		print "Error", errorCode, "on line:", (num+1), '| ', text.rstrip().lstrip()
 		break
 
 if __name__ == "__main__":
