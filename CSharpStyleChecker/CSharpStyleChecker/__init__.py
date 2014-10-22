@@ -15,16 +15,19 @@ def styleCheck(fileContents, fileName):
     """
     
     # Check for egyptian braces
-    checkErrorWithRegex(fileContents, fileName, regex_egyptianbrace)
+    checkErrorWithRegex(fileContents, fileName, regex_egyptianbrace, '001')
 
-def checkErrorWithRegex(fileContents, fileName, regexCmd):
+def checkErrorWithRegex(fileContents, fileName, regexCmd, errorCode):
     """
+    Checks for errors in the given file
+    that are found by the specified regex string
+    and will output with the appropriate error code
     """
     regexMsg = regexCmd.findall(fileContents)
     if regexMsg:
         parsedLines = []
         for line in regexMsg:
-            printWithLineNumber('001', fileName, line.rstrip(), parsedLines)
+            printWithLineNumber(errorCode, fileName, line.rstrip(), parsedLines)
 
 def printWithLineNumber(errorCode, fileName, line, parsedLines):
     """
